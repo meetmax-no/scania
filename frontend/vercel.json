@@ -1,8 +1,8 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
-  "buildCommand": "cd frontend && yarn install --frozen-lockfile && yarn build",
-  "outputDirectory": "frontend/build",
-  "installCommand": "echo 'skip root install — frontend handles its own'",
+  "buildCommand": "yarn install --frozen-lockfile && yarn build",
+  "outputDirectory": "build",
+  "installCommand": "echo 'install handled in buildCommand'",
   "framework": null,
   "trailingSlash": false,
   "cleanUrls": true,
