@@ -49,7 +49,7 @@ const trucks = [
     name: "40R Battery Electric",
     spec: "624 kWh · 4.5h drive + 45 min charge",
     desc: "Long-haul without diesel. Megawatt charging-ready, the 40R is the first heavy electric Scania designed for regulated 4.5h driver shifts.",
-    img: "https://images.pexels.com/photos/3996252/pexels-photo-3996252.jpeg?auto=compress&cs=tinysrgb&w=1400",
+    img: "https://images.pexels.com/photos/2554680/pexels-photo-2554680.jpeg?auto=compress&cs=tinysrgb&w=1400",
   },
 ];
 

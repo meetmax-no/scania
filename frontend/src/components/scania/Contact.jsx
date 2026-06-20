@@ -56,7 +56,8 @@ export default function Contact() {
                 </span>
                 <a
                   href={`mailto:${c.value}`}
-                  className="font-display text-xl md:text-2xl font-bold tracking-tight link-underline break-all"
+                  data-testid={`${c.testid}-link`}
+                  className="font-display text-base md:text-lg font-bold tracking-tight link-underline break-all"
                 >
                   {c.value}
                 </a>
