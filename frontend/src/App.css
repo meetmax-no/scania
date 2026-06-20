@@ -1,34 +1,119 @@
-.App-logo {
-    height: 40vmin;
-    pointer-events: none;
+@import url("https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@400,500,700,800,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600;700&display=swap");
+
+:root {
+  --dove-blue: #587187;
+  --dove-blue-dark: #3B4E5E;
+  --dove-blue-deep: #2A3744;
+  --bg-light: #F2F5F8;
+  --bg-dark: #0B0E12;
+  --ink: #000000;
+  --ink-soft: #1A1F26;
+  --paper: #FFFFFF;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-    .App-logo {
-        animation: App-logo-spin infinite 20s linear;
-    }
+html {
+  scroll-behavior: smooth;
 }
 
-.App-header {
-    background-color: #0f0f10;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    font-size: calc(10px + 2vmin);
-    color: white;
+body {
+  margin: 0;
+  font-family: "IBM Plex Sans", system-ui, sans-serif;
+  background: var(--bg-light);
+  color: var(--ink);
+  -webkit-font-smoothing: antialiased;
 }
 
-.App-link {
-    color: #61dafb;
+.font-display {
+  font-family: "Cabinet Grotesk", "IBM Plex Sans", sans-serif;
+  font-feature-settings: "ss01";
 }
 
-@keyframes App-logo-spin {
-    from {
-        transform: rotate(0deg);
-    }
-    to {
-        transform: rotate(360deg);
-    }
+.font-body {
+  font-family: "IBM Plex Sans", sans-serif;
 }
+
+/* Marquee */
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+.marquee-track {
+  animation: marquee 40s linear infinite;
+}
+
+/* Grain overlay */
+.grain::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml;utf8,<svg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.08 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+  opacity: 0.35;
+  mix-blend-mode: multiply;
+}
+
+/* Sharp focus rings */
+*:focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: 2px;
+}
+
+::selection {
+  background: var(--ink);
+  color: var(--bg-light);
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-track { background: var(--bg-light); }
+::-webkit-scrollbar-thumb { background: var(--dove-blue-dark); border: 2px solid var(--bg-light); }
+::-webkit-scrollbar-thumb:hover { background: var(--ink); }
+
+/* Truck silhouette divider */
+.diag-divider {
+  background-image: repeating-linear-gradient(
+    45deg,
+    #000 0 1px,
+    transparent 1px 12px
+  );
+}
+
+/* Number ticker */
+.tabular {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Image hover */
+.img-zoom-wrap { overflow: hidden; }
+.img-zoom { transition: transform 700ms cubic-bezier(0.22, 1, 0.36, 1); }
+.img-zoom-wrap:hover .img-zoom { transform: scale(1.06); }
+
+/* Link underline */
+.link-underline {
+  background-image: linear-gradient(to right, currentColor 0%, currentColor 100%);
+  background-position: 0 100%;
+  background-repeat: no-repeat;
+  background-size: 100% 1px;
+  transition: background-size 250ms ease;
+}
+.link-underline:hover { background-size: 100% 2px; }
+
+/* Button slide */
+.btn-slide {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+.btn-slide::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--dove-blue);
+  transform: translateY(100%);
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: -1;
+}
+.btn-slide:hover::before { transform: translateY(0); }
+.btn-slide.invert::before { background: var(--ink); }
+.btn-slide.invert-light::before { background: var(--bg-light); }
