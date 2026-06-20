@@ -1,8 +1,8 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
-  "buildCommand": "cd frontend && yarn install && yarn build",
-  "outputDirectory": "frontend/build",
-  "installCommand": "echo 'install handled in buildCommand'",
+  "buildCommand": "yarn install && yarn build",
+  "outputDirectory": "build",
+  "installCommand": "echo 'install handled by buildCommand'",
   "framework": null,
   "trailingSlash": false,
   "cleanUrls": true,
@@ -11,7 +11,7 @@
   ],
   "headers": [
     {
-      "source": "/static/(.*)",
+      "source": "/assets/(.*)",
       "headers": [
         { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
       ]
