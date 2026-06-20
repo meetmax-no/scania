@@ -61,6 +61,48 @@ let webpackConfig = {
 };
 
 webpackConfig.devServer = (devServerConfig) => {
+  // Compat shim: react-scripts 5 emits webpack-dev-server v4 API
+  // but the environment ships webpack-dev-server v5.
+  if (
+    devServerConfig.onBeforeSetupMiddleware ||
+    devServerConfig.onAfterSetupMiddleware
+  ) {
+    const before = devServerConfig.onBeforeSetupMiddleware;
+    const after = devServerConfig.onAfterSetupMiddleware;
+    delete devServerConfig.onBeforeSetupMiddleware;
+    delete devServerConfig.onAfterSetupMiddleware;
+    const prevSetup = devServerConfig.setupMiddlewares;
+    devServerConfig.setupMiddlewares = (middlewares, devServer) => {
+      if (before) before(devServer);
+      if (prevSetup) middlewares = prevSetup(middlewares, devServer);
+      if (after) after(devServer);
+      return middlewares;
+    };
+  }
+
+  // `https` was renamed to `server` in webpack-dev-server v5
+  if ("https" in devServerConfig) {
+    const httpsOpt = devServerConfig.https;
+    delete devServerConfig.https;
+    if (httpsOpt) {
+      devServerConfig.server = {
+        type: "https",
+        ...(typeof httpsOpt === "object" ? { options: httpsOpt } : {}),
+      };
+    }
+  }
+  // Other removed v4 options that should be stripped:
+  ["webSocketServer"].forEach((k) => {
+    // keep webSocketServer if it's already a valid v5 object
+  });
+  delete devServerConfig.transportMode;
+  delete devServerConfig.contentBase;
+  delete devServerConfig.contentBasePublicPath;
+  delete devServerConfig.publicPath;
+  delete devServerConfig.sockHost;
+  delete devServerConfig.sockPath;
+  delete devServerConfig.sockPort;
+
   // Add health check endpoints if enabled
   if (config.enableHealthCheck && setupHealthEndpoints && healthPluginInstance) {
     const originalSetupMiddlewares = devServerConfig.setupMiddlewares;

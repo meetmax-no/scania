@@ -61,7 +61,7 @@ export default function EVProduction() {
           >
             <div className="img-zoom-wrap">
               <img
-                src="https://images.unsplash.com/photo-1605559424843-9e4c228bf1c0?auto=format&fit=crop&w=1600&q=80"
+                src="https://images.pexels.com/photos/1638459/pexels-photo-1638459.jpeg?auto=compress&cs=tinysrgb&w=1600"
                 alt="Scania electric truck"
                 className="img-zoom w-full h-[400px] md:h-[520px] object-cover"
               />

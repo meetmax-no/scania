@@ -1,0 +1,48 @@
+{
+  "summary": "End-to-end UI testing of the Scania Heavy Trucks static landing page. All sections render, all data-testids exist, navigation/scroll works, all 6 Pexels truck images load and switch correctly via interactive tabs, mailto links work, mobile hamburger menu opens/closes and scrolls to anchors. Zero console errors. Two content/relevance observations flagged for E1.",
+  "backend_issues": {"critical": [], "minor": []},
+  "frontend_issues": {
+    "ui_bugs": [],
+    "integration_issues": [],
+    "design_issues": [
+      {
+        "screen": "EVProduction section / IconicTrucks (40R BEV tab)",
+        "issues": [
+          "Pexels image photos/3996252 is used as the 40R BEV truck and also as the EV section hero figure. It shows a red Jeep Wrangler SUV — NOT a heavy truck/BEV semi. This is a clear topical mismatch that undermines credibility on the EV/BEV story. Consider sourcing a Scania-like heavy-truck or cabover BEV image (or a generic class-8 electric tractor)."
+        ]
+      },
+      {
+        "screen": "Iconic Trucks tabs (generic)",
+        "issues": [
+          "Some Pexels images for L51/LB140/T-CAB are generic outdoor/road photos rather than vintage heavy trucks. They are not broken but their relevance to specific Scania models is weak. For a heritage-focused page, consider curated archive/heavy-haul images."
+        ]
+      },
+      {
+        "screen": "Contact section channel cards",
+        "issues": [
+          "Long emails like 'archive@scania-heavy.example' wrap across two lines on desktop (visible in screenshot). Consider increasing the cell min-width on lg breakpoints or reducing font-size to keep each email on one line."
+        ]
+      }
+    ]
+  },
+  "test_report_links": [],
+  "action_items": [
+    "Replace EV/40R BEV image (Pexels 3996252) with an actual heavy-truck / BEV semi image — the current Jeep Wrangler is off-topic for the heavy-truck EV story.",
+    "(Optional) Curate Iconic Trucks images so each model card shows a representative heavy truck rather than a generic road scene.",
+    "(Optional) Prevent email wrap in the Contact channel cards (e.g., shrink font or widen card on lg)."
+  ],
+  "critical_code_review_comments": [
+    "Contact.jsx: data-testid='contact-press|fleet|archive|tours' is on the <li> wrapper, while the actual mailto <a> is a child. The spec text said the channel boxes are mailto links — currently those testids point to <li>s with no href. Inner anchors do carry the correct mailto: hrefs. This works but if any test asserts href directly on the testid element it will fail; consider moving the testid onto the <a> or adding a separate testid for the link.",
+    "Landing.jsx renders <Stats /> AFTER <History /> but the request lists the Stats strip immediately after the Hero section. Current order: Hero → Marquee → History → Stats → Owners → … This is acceptable but worth confirming with E1 whether Stats should sit between Marquee and History.",
+    "IconicTrucks.jsx truck.code '40R BEV' contains a space, producing data-testid='truck-tab-40R BEV' (with space). Spaces in data-testid values are valid but awkward for some test runners/selectors. Consider '40R-BEV' for consistency with R-SERIES, T-CAB, S-SERIES.",
+    "Hero section uses inline background-image (no <img>) — verified loading via computed style (URL present). Acceptable, but means it won't surface in img broken-image audits."
+  ],
+  "updated_files": [],
+  "success_rate": {"backend": "N/A (frontend-only)", "frontend": "100% of acceptance criteria verified"},
+  "test_credentials": "N/A — static page, no auth",
+  "seed_data_creation": "None",
+  "retest_needed": false,
+  "main_agent_can_self_test": true,
+  "context_for_next_testing_agent": "Page is fully static under https://scania-innovation.preview.emergentagent.com. Use domcontentloaded + wait_for_selector instead of networkidle (Marquee runs an infinite CSS/JS animation so networkidle never resolves). All key data-testids confirmed: landing-root, nav-header, nav-logo, nav-{history,owners,iconic,ev,future,contact}-link (+ nav-mobile-* variants), nav-mobile-toggle, nav-mobile-menu, nav-cta, hero-section, hero-headline, hero-cta-explore, hero-cta-ev, marquee, history-section + history-item-{1891,1900,1911,1949,1969,1980,1995,2016,2020,2024} (NOTE: actual years are 1900, 2020 — not 1902/1939 as the request guessed), stats-strip + stats-cell-0..3, owners-section + owners-chapter-0..3, iconic-section + truck-tab-{L51,LB140,R-SERIES,T-CAB,S-SERIES,'40R BEV'}, ev-section + ev-card-0..3, future-section + future-row-{2026..2030}, contact-section, contact-headline, contact-{press,fleet,archive,tours} (testid on <li>; inner <a> carries mailto: href), contact-primary-cta (mailto:hello@scania-heavy.example), footer.",
+  "rca of the issue": "No functional bugs. EV/40R BEV image content mismatch is purely a curated-asset choice in IconicTrucks.jsx (line 52) — replace the Pexels URL with a heavy-truck or class-8 BEV photo to fix."
+}

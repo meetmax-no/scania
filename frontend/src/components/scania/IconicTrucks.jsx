@@ -9,7 +9,7 @@ const trucks = [
     name: "L51 / L71 — Royal",
     spec: "Direct-injection diesel · 90–135 hp",
     desc: "The first modern Scania-Vabis. Direct-injection diesel set the standard for fuel-efficient heavy work — and powered post-war Scandinavian reconstruction.",
-    img: "https://images.unsplash.com/photo-1571227954002-79dc0a3b71ce?auto=format&fit=crop&w=1400&q=80",
+    img: "https://images.pexels.com/photos/2199293/pexels-photo-2199293.jpeg?auto=compress&cs=tinysrgb&w=1400",
   },
   {
     code: "LB140",
@@ -17,7 +17,7 @@ const trucks = [
     name: "LB140 V8",
     spec: "14.2 L V8 · 350 hp",
     desc: "The world's most powerful production truck of its era. The badge that started a 56-year obsession with the Scania V8.",
-    img: "https://images.unsplash.com/photo-1601584115197-04ecc0da31ec?auto=format&fit=crop&w=1400&q=80",
+    img: "https://images.pexels.com/photos/1267325/pexels-photo-1267325.jpeg?auto=compress&cs=tinysrgb&w=1400",
   },
   {
     code: "R-SERIES",
@@ -33,7 +33,7 @@ const trucks = [
     name: "T-Series Bonneted",
     spec: "Conventional cab · V8 optional",
     desc: "The last of the great European bonneted heavy trucks. A cult classic in heavy haulage, timber and special transport.",
-    img: "https://images.unsplash.com/photo-1586191582151-f73872dfd183?auto=format&fit=crop&w=1400&q=80",
+    img: "https://images.pexels.com/photos/93398/pexels-photo-93398.jpeg?auto=compress&cs=tinysrgb&w=1400",
   },
   {
     code: "S-SERIES",
@@ -41,7 +41,7 @@ const trucks = [
     name: "S-Series NTG",
     spec: "Flat-floor cab · V8 up to 770 hp",
     desc: "International Truck of the Year 2017. The New Truck Generation flagship — a decade of clean-sheet engineering for the modern long haul.",
-    img: "https://images.unsplash.com/photo-1605559424843-9e4c228bf1c0?auto=format&fit=crop&w=1400&q=80",
+    img: "https://images.pexels.com/photos/2199295/pexels-photo-2199295.jpeg?auto=compress&cs=tinysrgb&w=1400",
   },
   {
     code: "40R BEV",
@@ -49,7 +49,7 @@ const trucks = [
     name: "40R Battery Electric",
     spec: "624 kWh · 4.5h drive + 45 min charge",
     desc: "Long-haul without diesel. Megawatt charging-ready, the 40R is the first heavy electric Scania designed for regulated 4.5h driver shifts.",
-    img: "https://images.unsplash.com/photo-1551471698-c7787ff6b7ca?auto=format&fit=crop&w=1400&q=80",
+    img: "https://images.pexels.com/photos/3996252/pexels-photo-3996252.jpeg?auto=compress&cs=tinysrgb&w=1400",
   },
 ];
 
