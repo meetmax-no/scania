@@ -72,8 +72,8 @@ export default function Owners() {
         <div className="mt-24 grid grid-cols-12 gap-6">
           <figure className="col-span-12 md:col-span-7 img-zoom-wrap border border-white/30">
             <img
-              src="https://images.pexels.com/photos/6563903/pexels-photo-6563903.jpeg"
-              alt="Industrial truck presence"
+              src="/scania/owners-biomethane.jpg"
+              alt="Industrial Scania truck"
               className="img-zoom w-full h-[420px] md:h-[520px] object-cover grayscale"
             />
           </figure>

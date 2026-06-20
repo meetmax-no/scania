@@ -72,8 +72,8 @@ export default function History() {
           <div className="col-span-12 md:col-span-5 lg:col-span-4">
             <div className="img-zoom-wrap border border-black sticky top-28">
               <img
-                src="https://images.pexels.com/photos/33256298/pexels-photo-33256298.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=900&w=940"
-                alt="Vintage trucking heritage"
+                src="/scania/history-archive.jpg"
+                alt="Vintage Scania-Vabis truck"
                 className="img-zoom w-full h-[520px] object-cover grayscale"
               />
               <div className="bg-black text-white px-5 py-4 text-[10px] tracking-[0.25em] uppercase flex justify-between">
