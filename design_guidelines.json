@@ -1,0 +1,128 @@
+{
+  "theme_and_archetype": {
+    "theme": "Dark/Light Hybrid",
+    "archetype": "Archetype 4 (Swiss & High-Contrast)",
+    "description": "A premium, industrial, and engineering-focused aesthetic. Built around strict Swiss grid principles with bold typography and extreme contrast. The primary tone is 'Dueblå' (Dove Blue) which is used as a sophisticated background or accent, sharply contrasted with stark Black for a powerful, museum-grade automotive heritage feel."
+  },
+  "typography": {
+    "strategy": "Swiss Brutalist Industrial",
+    "primary_font": "Cabinet Grotesk",
+    "secondary_font": "IBM Plex Sans",
+    "rules": {
+      "h1": "text-5xl md:text-7xl font-black tracking-tighter uppercase",
+      "h2": "text-4xl md:text-5xl font-bold tracking-tight",
+      "h3": "text-2xl md:text-3xl font-medium tracking-tight",
+      "body": "text-base md:text-lg leading-relaxed font-normal text-slate-800 dark:text-slate-300",
+      "overline": "text-sm font-semibold tracking-[0.2em] uppercase text-black"
+    }
+  },
+  "colors": {
+    "background": {
+      "light": "#F2F5F8",
+      "dark": "#0B0E12",
+      "dove_blue": "#587187"
+    },
+    "text": {
+      "primary": "#000000",
+      "secondary": "#334155",
+      "inverse": "#FFFFFF",
+      "inverse_muted": "#94A3B8"
+    },
+    "accent": {
+      "dove_blue_dark": "#3B4E5E",
+      "black": "#000000"
+    },
+    "rules": "Black is the anchor contrast color. Use pure black for heavy borders, typography, and section dividers. Dove blue (#587187) acts as a brand identifier, softening the harsh industrial feel while remaining highly premium."
+  },
+  "layout_and_spacing": {
+    "grid_system": "Swiss Grid (12 columns desktop, 1 column mobile)",
+    "spacing_scale": {
+      "section_padding": "py-24 md:py-32",
+      "container": "px-6 md:px-12 max-w-[1440px] mx-auto",
+      "gap": "gap-8 md:gap-16"
+    },
+    "rules": "Asymmetrical composition is mandatory. Never center-align all content. Use the left edge as a strict anchor. Leave generous negative space. Borders should be 1px solid black or dove blue to define structure."
+  },
+  "components": {
+    "buttons": "Sharp edges, 0px border-radius. High contrast. Black background with white text, or Dove Blue background with White text. Hover state: invert colors or slide-up animation.",
+    "timeline": "Vertical black 2px line. Dates in massive Cabinet Grotesk, descriptions in IBM Plex Sans. Left-aligned on grid.",
+    "cards": "No standard floating cards. Use border-collapse style grids. 1px black borders separating content modules.",
+    "navigation": "Sticky, glassmorphism (backdrop-blur-xl bg-white/70 or bg-[#0B0E12]/80) but with a harsh 1px bottom border. Crisp, wide spacing."
+  },
+  "animations": {
+    "scroll": "Use Lenis for smooth scrolling if possible. Reveal sections on scroll with Framer Motion (opacity 0 to 1, translate Y 20px).",
+    "hover": "Image zoom inside strict overflow-hidden containers. Text color fill on hover.",
+    "transitions": "Harsh, fast, mechanical transitions (e.g., 0.2s ease-in-out)."
+  },
+  "media": [
+    {
+      "category": "Hero Section",
+      "description": "Dramatic highway shot of a Scania truck, cinematic.",
+      "url": "https://images.unsplash.com/photo-1670509295484-df0c2512fec4?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA1NDh8MHwxfHNlYXJjaHwxfHxzY2FuaWElMjB0cnVjayUyMGhpZ2h3YXl8ZW58MHx8fHwxNzgxODc0MTAxfDA&ixlib=rb-4.1.0&q=85",
+      "overlay": "bg-black/40"
+    },
+    {
+      "category": "History/Heritage",
+      "description": "Monochrome, moody vintage trucking scene.",
+      "url": "https://images.pexels.com/photos/33256298/pexels-photo-33256298.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+    },
+    {
+      "category": "Iconic Trucks",
+      "description": "Classic red semi truck, heritage feel.",
+      "url": "https://images.pexels.com/photos/34161208/pexels-photo-34161208.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+    },
+    {
+      "category": "EV/Future Production",
+      "description": "Time-lapse, modern electric vehicle motion.",
+      "url": "https://images.unsplash.com/photo-1551471698-c7787ff6b7ca"
+    },
+    {
+      "category": "Manufacturing/Owner Segment",
+      "description": "Industrial truck presence.",
+      "url": "https://images.pexels.com/photos/6563903/pexels-photo-6563903.jpeg"
+    }
+  ],
+  "accessibility": {
+    "contrast": "Ensure text over 'Dove Blue' background meets WCAG AA guidelines. Use #000000 text on Dove Blue for maximum stark contrast.",
+    "testing": "All interactive elements (timeline nodes, nav links, buttons) MUST include a 'data-testid' attribute (e.g., data-testid='nav-history-link')."
+  },
+  "page_sections": [
+    {
+      "id": "hero",
+      "content": "Scania Heavy Trucks branding. Full screen image overlay. Huge Cabinet Grotesk typography."
+    },
+    {
+      "id": "history",
+      "content": "Brand History (1891 to present) represented via a vertical timeline. Deep dove blue background."
+    },
+    {
+      "id": "owners",
+      "content": "Marcus Wallenberg, Traton/Volkswagen Group acquisition story. High contrast black & white editorial grid."
+    },
+    {
+      "id": "iconic-trucks",
+      "content": "L-series, V8, R-series, S-series. Image-heavy grid layout."
+    },
+    {
+      "id": "ev-production",
+      "content": "Electric Vehicle production section. High tech, futuristic dark section."
+    },
+    {
+      "id": "future-vision",
+      "content": "Next 5 years roadmap. Electrification, autonomous trucks. Dark grey/blue background with crisp typography."
+    },
+    {
+      "id": "contact",
+      "content": "Massive black footer. Large typography 'LET\\'S TALK HEAVY METAL'. Basic contact info."
+    }
+  ],
+  "instructions_to_main_agent": [
+    "Install 'lucide-react' for any icons required.",
+    "Add 'Cabinet Grotesk' and 'IBM Plex Sans' via Google Fonts or custom font faces.",
+    "Implement a responsive layout strictly using Tailwind CSS utility classes.",
+    "Do NOT use generic rounded cards with shadows. Follow the 'Swiss Brutalist' styling: sharp edges, 1px lines, high contrast.",
+    "Integrate Framer Motion for scroll reveals.",
+    "Ensure the Dove Blue color ('#587187') is heavily utilized alongside pure black.",
+    "Include 'data-testid' on all interactive elements."
+  ]
+}
