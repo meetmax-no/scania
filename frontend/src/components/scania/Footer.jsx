@@ -1,4 +1,7 @@
+import { useLanguage } from "@/i18n/LanguageContext";
+
 export default function Footer() {
+  const { t } = useLanguage();
   return (
     <footer
       data-testid="footer"
@@ -11,18 +14,15 @@ export default function Footer() {
             Scania<span className="text-[#587187]">/</span>HEAVY
           </div>
           <nav className="flex flex-wrap gap-6 text-xs tracking-[0.25em] uppercase text-white/60">
-            <a href="#history" className="link-underline">Heritage</a>
-            <a href="#owners" className="link-underline">Ownership</a>
-            <a href="#iconic" className="link-underline">Icons</a>
-            <a href="#ev" className="link-underline">Electric</a>
-            <a href="#future" className="link-underline">2030</a>
+            <a href="#history" className="link-underline">{t.nav.heritage}</a>
+            <a href="#owners" className="link-underline">{t.nav.ownership}</a>
+            <a href="#iconic" className="link-underline">{t.nav.icons}</a>
+            <a href="#ev" className="link-underline">{t.nav.electric}</a>
+            <a href="#future" className="link-underline">{t.nav.future}</a>
           </nav>
         </div>
         <div className="mt-10 pt-6 border-t border-white/15 flex flex-col md:flex-row md:justify-between gap-3 text-xs text-white/50">
-          <p>
-            Editorial fan project — independent of Scania AB and TRATON SE.
-            Heritage imagery used for non-commercial demonstration.
-          </p>
+          <p>{t.footer.disclaimer}</p>
           <p className="tabular">© {new Date().getFullYear()} · Södertälje, SE</p>
         </div>
       </div>

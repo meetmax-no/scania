@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import { LanguageProvider, useLanguage } from "@/i18n/LanguageContext";
 import Nav from "@/components/scania/Nav";
 import Hero from "@/components/scania/Hero";
 import Marquee from "@/components/scania/Marquee";
@@ -11,10 +12,11 @@ import Stats from "@/components/scania/Stats";
 import Contact from "@/components/scania/Contact";
 import Footer from "@/components/scania/Footer";
 
-export default function Landing() {
+function LandingBody() {
+  const { t } = useLanguage();
   useEffect(() => {
-    document.title = "Scania Heavy Trucks — Heritage. Power. Electric Future.";
-  }, []);
+    document.title = t.title;
+  }, [t.title]);
 
   return (
     <main className="bg-[#F2F5F8] text-black font-body antialiased" data-testid="landing-root">
@@ -30,5 +32,13 @@ export default function Landing() {
       <Contact />
       <Footer />
     </main>
+  );
+}
+
+export default function Landing() {
+  return (
+    <LanguageProvider>
+      <LandingBody />
+    </LanguageProvider>
   );
 }

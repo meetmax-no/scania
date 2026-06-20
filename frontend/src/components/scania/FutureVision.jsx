@@ -1,45 +1,10 @@
 import { motion } from "framer-motion";
+import { useLanguage } from "@/i18n/LanguageContext";
 import { SectionHeader } from "./History";
 
-const roadmap = [
-  {
-    year: "2026",
-    title: "MCS megawatt charging network",
-    text: "Public megawatt charging corridors launch across EU. Scania co-develops with energy partners — fleet contracts include destination charging.",
-    pct: "20%",
-    pctLabel: "BEV share of new Scania sales",
-  },
-  {
-    year: "2027",
-    title: "Hub-to-hub autonomy (SAE L4)",
-    text: "Autonomous heavy trucks operate on dedicated fenced motorway hubs in Sweden and Germany. Commercial pilots begin with major shippers.",
-    pct: "1,200 km",
-    pctLabel: "BEV daily range with mid-route fast charge",
-  },
-  {
-    year: "2028",
-    title: "Hydrogen fuel-cell trials",
-    text: "Limited-series H2 fuel-cell heavy trucks join the lineup for ultra-heavy and remote operations where BEV isn't optimal — Sweden, Norway, Australia.",
-    pct: "100%",
-    pctLabel: "Fossil-free production at Södertälje",
-  },
-  {
-    year: "2029",
-    title: "Modular battery swap (regional)",
-    text: "Pilot of modular swap battery packs for short-haul fleets. Less downtime, smaller batteries, lower total cost of ownership.",
-    pct: "40%",
-    pctLabel: "Of fleet electrified across Europe",
-  },
-  {
-    year: "2030",
-    title: "Half of Scania's new trucks are BEV.",
-    text: "Scania's pledge to the Science Based Targets initiative: 50 percent electric of new vehicle sales by 2030, with full lifecycle CO₂ down 20% from 2015.",
-    pct: "−20%",
-    pctLabel: "Lifecycle CO₂ vs 2015 baseline",
-  },
-];
-
 export default function FutureVision() {
+  const { t } = useLanguage();
+  const f = t.future;
   return (
     <section
       id="future"
@@ -48,14 +13,14 @@ export default function FutureVision() {
     >
       <div className="max-w-[1440px] mx-auto px-6 md:px-12">
         <SectionHeader
-          eyebrow="05 — 2026 → 2030"
-          title="The next five years."
-          subtitle="A working roadmap. Public commitments to TRATON, the European Union and the Science Based Targets initiative — translated into trucks."
+          eyebrow={f.eyebrow}
+          title={f.title}
+          subtitle={f.subtitle}
           testid="future"
         />
 
         <div className="mt-20 space-y-px bg-white/30">
-          {roadmap.map((r, i) => (
+          {f.rows.map((r, i) => (
             <motion.article
               key={r.year}
               data-testid={`future-row-${r.year}`}

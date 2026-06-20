@@ -1,59 +1,9 @@
 import { motion } from "framer-motion";
-
-const milestones = [
-  {
-    year: "1891",
-    title: "Vabis is founded in Södertälje",
-    text: "Vagnfabriks-Aktiebolaget i Södertelge begins building rail wagons in the Swedish town that will become heavy-truck capital of Europe.",
-  },
-  {
-    year: "1900",
-    title: "Scania is born in Malmö",
-    text: "Maskinfabriks-Aktiebolaget Scania starts producing bicycles, then cars and trucks, named after the southern Scania province.",
-  },
-  {
-    year: "1911",
-    title: "The merger — Scania-Vabis",
-    text: "The two companies merge to form Scania-Vabis, concentrating heavy commercial vehicle production in Södertälje.",
-  },
-  {
-    year: "1949",
-    title: "Direct-injection diesel",
-    text: "Scania-Vabis introduces the legendary L51 with direct-injection diesel — a leap in torque, reliability and fuel economy for heavy work.",
-  },
-  {
-    year: "1969",
-    title: "The V8 era begins",
-    text: "Scania unleashes the LB140 V8, 350 hp — the most powerful production truck in the world. The V8 becomes Scania's badge of honour.",
-  },
-  {
-    year: "1980",
-    title: "GPRT generation",
-    text: "The modular G, P, R, T cabs introduce the world's first truly modular truck system — the engineering DNA still used today.",
-  },
-  {
-    year: "1995",
-    title: "Independent again",
-    text: "Scania separates from Saab-Scania and listed on the Stockholm Stock Exchange. The Griffin returns as the brand mark.",
-  },
-  {
-    year: "2016",
-    title: "New Truck Generation",
-    text: "After a decade of development, the NTG R and S series launches — winning International Truck of the Year 2017.",
-  },
-  {
-    year: "2020",
-    title: "First battery-electric trucks",
-    text: "Scania starts serial production of plug-in hybrid and full electric heavy trucks for regional distribution.",
-  },
-  {
-    year: "2024",
-    title: "Regional Long-haul BEV",
-    text: "Scania introduces the 40R battery-electric tractor for long-haul, capable of 4.5 hours driving + 45 min fast-charge regulation.",
-  },
-];
+import { useLanguage } from "@/i18n/LanguageContext";
 
 export default function History() {
+  const { t } = useLanguage();
+  const h = t.history;
   return (
     <section
       id="history"
@@ -62,9 +12,9 @@ export default function History() {
     >
       <div className="max-w-[1440px] mx-auto px-6 md:px-12">
         <SectionHeader
-          eyebrow="01 — Heritage"
-          title="A century and a third of heavy engineering."
-          subtitle="From Södertälje railcars to autonomous freight — every era of Scania shaped modern road transport."
+          eyebrow={h.eyebrow}
+          title={h.title}
+          subtitle={h.subtitle}
           testid="history"
         />
 
@@ -77,15 +27,15 @@ export default function History() {
                 className="img-zoom w-full h-[520px] object-cover grayscale"
               />
               <div className="bg-black text-white px-5 py-4 text-[10px] tracking-[0.25em] uppercase flex justify-between">
-                <span>Plate #SCN-1891</span>
-                <span>Södertälje Archive</span>
+                <span>{h.plate}</span>
+                <span>{h.archive}</span>
               </div>
             </div>
           </div>
 
           <ol className="col-span-12 md:col-span-7 lg:col-span-8 mt-16 md:mt-0 relative">
             <div className="absolute left-[88px] md:left-[100px] top-2 bottom-2 w-px bg-black" aria-hidden />
-            {milestones.map((m, i) => (
+            {h.milestones.map((m, i) => (
               <motion.li
                 key={m.year}
                 data-testid={`history-item-${m.year}`}

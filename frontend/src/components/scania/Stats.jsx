@@ -1,23 +1,19 @@
-const rows = [
-  { k: "Founded", v: "1891", sub: "Södertälje, Sweden" },
-  { k: "Employees", v: "59,400+", sub: "Across 100+ markets" },
-  { k: "Annual production", v: "≈ 100k", sub: "Heavy trucks per year" },
-  { k: "V8 power record", v: "770 hp", sub: "Most powerful series truck" },
-];
+import { useLanguage } from "@/i18n/LanguageContext";
 
 export default function Stats() {
+  const { t } = useLanguage();
   return (
     <section
       data-testid="stats-strip"
       className="bg-[#587187] text-black border-y border-black relative"
     >
       <div className="max-w-[1440px] mx-auto px-6 md:px-12 grid grid-cols-2 md:grid-cols-4">
-        {rows.map((r, i) => (
+        {t.stats.map((r, i) => (
           <div
-            key={r.k}
+            key={i}
             data-testid={`stats-cell-${i}`}
             className={`py-10 md:py-14 ${
-              i < rows.length - 1 ? "md:border-r border-black" : ""
+              i < t.stats.length - 1 ? "md:border-r border-black" : ""
             } ${i < 2 ? "border-b md:border-b-0 border-black" : ""} ${
               i % 2 === 0 ? "border-r md:border-r" : ""
             } px-2 md:px-6`}
